@@ -1,0 +1,44 @@
+.isl-divider {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.isl-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: isl-scroll linear infinite;
+  will-change: transform;
+}
+
+@keyframes isl-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.isl-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.isl-sep {
+  font-size: 0.6rem;
+  opacity: 0.6;
+}
+
+/* 4 different text styles */
+.isl-style-0 { font-size: 1.1rem; font-weight: 400; }
+.isl-style-1 { font-size: 1.3rem; font-weight: 700; text-shadow: 0 0 8px rgba(201,168,76,0.4); }
+.isl-style-2 { font-size: 0.95rem; font-weight: 400; letter-spacing: 2px; opacity: 0.85; }
+.isl-style-3 { font-size: 1.2rem; font-weight: 700; font-style: italic; }

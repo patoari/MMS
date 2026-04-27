@@ -1,0 +1,14 @@
+.marks-filters { }
+.marks-filter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.marks-saved { background: #dcfce7; color: var(--success); padding: 12px 16px; border-radius: 8px; font-weight: 500; }
+.marks-table-wrapper { overflow-x: auto; padding: 0; }
+.marks-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.marks-table th { background: var(--primary); color: #fff; padding: 12px 10px; text-align: center; white-space: nowrap; }
+.marks-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: center; }
+.marks-table tbody tr:hover { background: #f0faf4; }
+.marks-input {
+  width: 60px; padding: 6px 8px; border: 1.5px solid var(--border);
+  border-radius: 6px; text-align: center; font-size: 0.875rem;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+.marks-input:focus { outline: none; border-color: var(--primary); }

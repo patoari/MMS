@@ -1,0 +1,113 @@
+.hero-carousel-scene {
+  width: 100%;
+  height: 620px;
+  perspective: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.carousel-track {
+  width: 220px;
+  height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.carousel-card {
+  position: absolute;
+  width: 220px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.4s, box-shadow 0.4s;
+  backface-visibility: hidden;
+}
+
+.carousel-card-active {
+  border-color: var(--gold);
+  box-shadow: 0 12px 48px rgba(201, 168, 76, 0.5);
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 10px 8px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-align: center;
+  font-family: 'Hind Siliguri', sans-serif;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.carousel-card-active .carousel-caption {
+  opacity: 1;
+}
+
+/* Ground reflection */
+.carousel-ground {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero-carousel-scene {
+    height: 360px;
+    perspective: 700px;
+  }
+  .carousel-track {
+    width: 150px;
+    height: 260px;
+  }
+  .carousel-card {
+    width: 150px;
+    height: 260px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-carousel-scene {
+    height: 300px;
+    perspective: 500px;
+  }
+  .carousel-track {
+    width: 120px;
+    height: 210px;
+  }
+  .carousel-card {
+    width: 120px;
+    height: 210px;
+    border-radius: 10px;
+  }
+  .carousel-ground {
+    width: 200px;
+  }
+}

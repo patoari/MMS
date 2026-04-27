@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Pass Authorization header to PHP (required for JWT)
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+# Environment variables for production
+SetEnv JWT_SECRET 6d703b655c4b3fbfb599a1b4cdb0fea8617667b695684c4700108161dfc0e239acb727827ca10b753c1ac200d83d494e
+SetEnv DB_HOST localhost
+SetEnv DB_NAME proqoder_madrasah_mms
+SetEnv DB_USER proqoder_common
+SetEnv DB_PASS 123Common$%^

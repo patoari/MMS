@@ -1,0 +1,83 @@
+.login-page { display: flex; min-height: 100vh; }
+.login-left {
+  flex: 1; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 48px; color: #fff; gap: 40px;
+}
+.login-brand { text-align: center; }
+.login-brand-icon { font-size: 4rem; margin-bottom: 16px; }
+.login-brand-name { font-size: 2rem; font-weight: 800; color: var(--gold-light); margin-bottom: 8px; }
+.login-brand-tagline { font-size: 1rem; color: rgba(255,255,255,0.8); }
+.login-quote { text-align: center; background: rgba(255,255,255,0.1); padding: 24px; border-radius: 14px; }
+.login-arabic { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; direction: rtl; }
+.login-quote p { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+
+.login-right { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px; background: #fff; }
+.login-form-container { width: 100%; max-width: 420px; }
+.login-title { font-size: 1.8rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+.login-subtitle { color: var(--text-muted); margin-bottom: 28px; }
+
+.role-tabs { display: flex; background: var(--bg); border-radius: 10px; padding: 4px; margin-bottom: 24px; }
+.role-tab {
+  flex: 1; padding: 9px; border: none; background: transparent;
+  border-radius: 8px; font-size: 0.875rem; font-weight: 500; color: var(--text-muted);
+  cursor: pointer; transition: all 0.2s; font-family: 'Hind Siliguri', sans-serif;
+}
+.role-tab.active { background: var(--primary); color: #fff; }
+
+.login-form { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+.login-error { background: #fee2e2; color: var(--danger); padding: 10px 14px; border-radius: 8px; font-size: 0.875rem; }
+
+.login-demo { background: var(--bg); padding: 14px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
+.login-demo-title { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
+.login-demo-roles { font-size: 0.82rem; color: var(--primary); font-weight: 500; }
+
+.back-home { display: block; text-align: center; color: var(--text-muted); font-size: 0.875rem; transition: color 0.2s; }
+.back-home:hover { color: var(--primary); }
+
+@media (max-width: 768px) {
+  .login-left { display: none; }
+  .login-right { padding: 24px; }
+}
+
+/* Modern Animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.login-brand-icon {
+  font-size: 4rem; 
+  margin-bottom: 16px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.login-brand-name {
+  font-size: 2rem; 
+  font-weight: 800; 
+  color: var(--gold-light); 
+  margin-bottom: 8px;
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.login-brand-tagline {
+  font-size: 1rem; 
+  color: rgba(255,255,255,0.8);
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+.login-quote {
+  text-align: center; 
+  background: rgba(255,255,255,0.1); 
+  padding: 24px; 
+  border-radius: 14px;
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}

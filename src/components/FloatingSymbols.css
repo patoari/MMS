@@ -1,0 +1,35 @@
+.floating-symbols {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fs-bubble {
+  position: absolute;
+  bottom: -60px;
+  color: rgba(26, 92, 56, 0.35);
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  line-height: 1;
+  user-select: none;
+  animation: fs-rise linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes fs-rise {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg) scale(1.3);
+    opacity: 0;
+  }
+}

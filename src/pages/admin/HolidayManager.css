@@ -1,0 +1,121 @@
+.hm-container { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.hm-toast {
+  position: fixed; top: 1.25rem; right: 1.25rem; z-index: 9999;
+  padding: 0.85rem 1.4rem; border-radius: 12px; font-size: 0.95rem;
+  font-weight: 500; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  animation: hm-slide 0.3s ease;
+}
+.hm-toast--success { background: #0f9b58; color: #fff; }
+.hm-toast--error   { background: #e53e3e; color: #fff; }
+@keyframes hm-slide { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
+
+.hm-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
+
+.hm-card {
+  background: #fff; border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07); overflow: hidden;
+}
+.hm-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.25rem; border-bottom: 1.5px solid #f0f4f8;
+  background: #fafbff; font-weight: 600; color: #2d3748; font-size: 0.92rem;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.hm-month-input {
+  padding: 0.4rem 0.75rem; border: 1.5px solid #e2e8f0; border-radius: 8px;
+  font-size: 0.85rem; font-family: inherit; outline: none;
+}
+.hm-month-input:focus { border-color: #667eea; }
+
+/* Calendar */
+.hm-cal-title { text-align: center; font-weight: 700; font-size: 1rem; color: #2d3748; padding: 0.75rem 0 0.25rem; }
+.hm-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; padding: 0.75rem; }
+.hm-cal-dow {
+  text-align: center; font-size: 0.72rem; font-weight: 700;
+  color: #718096; padding: 0.3rem 0;
+}
+.hm-cal-cell {
+  min-height: 52px; border-radius: 8px; padding: 4px;
+  display: flex; flex-direction: column; align-items: center;
+  background: #f7fafc; border: 1.5px solid transparent;
+  transition: all 0.15s; cursor: default;
+}
+.hm-cal-cell--empty { background: transparent; border-color: transparent; }
+.hm-cal-cell--friday { background: #fff5f5; border-color: #fed7d7; }
+.hm-cal-cell--holiday { background: #fef3c7; border-color: #fcd34d; }
+.hm-cal-cell--friday.hm-cal-cell--holiday { background: #fef3c7; border-color: #fcd34d; }
+.hm-cal-day { font-size: 0.85rem; font-weight: 600; color: #2d3748; }
+.hm-cal-tag { font-size: 0.6rem; font-weight: 700; border-radius: 4px; padding: 1px 4px; margin-top: 2px; }
+.hm-cal-tag--fri { background: #fed7d7; color: #c53030; }
+.hm-cal-tag--hol { background: #fcd34d; color: #92400e; }
+
+.hm-legend { display: flex; gap: 1rem; padding: 0.75rem 1rem; border-top: 1px solid #f0f4f8; }
+.hm-legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: #718096; }
+.hm-legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+.hm-legend-dot--fri { background: #fed7d7; border: 1px solid #fc8181; }
+.hm-legend-dot--hol { background: #fcd34d; border: 1px solid #f59e0b; }
+
+/* Form */
+.hm-form { padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; }
+.hm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.hm-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.hm-field label { font-size: 0.8rem; font-weight: 600; color: #4a5568; }
+.hm-input {
+  padding: 0.55rem 0.85rem; border: 1.5px solid #e2e8f0; border-radius: 10px;
+  font-size: 0.88rem; font-family: inherit; background: #fff; color: #2d3748;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hm-input:focus { border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.12); }
+.hm-submit-btn {
+  padding: 0.65rem; background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff; border: none; border-radius: 10px; font-size: 0.9rem;
+  font-weight: 600; cursor: pointer; font-family: inherit;
+  box-shadow: 0 4px 12px rgba(102,126,234,0.35); transition: opacity 0.2s;
+}
+.hm-submit-btn:hover:not(:disabled) { opacity: 0.9; }
+.hm-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* List */
+.hm-badge {
+  background: #edf2f7; color: #4a5568; font-size: 0.78rem;
+  padding: 0.2rem 0.65rem; border-radius: 20px; font-weight: 500;
+}
+.hm-empty { padding: 2rem; text-align: center; color: #a0aec0; font-size: 0.9rem; }
+.hm-list { display: flex; flex-direction: column; }
+.hm-list-item {
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.75rem 1.25rem; border-bottom: 1px solid #f0f4f8;
+  transition: background 0.15s;
+}
+.hm-list-item:hover { background: #f7fafc; }
+.hm-list-item--friday { border-left: 3px solid #fc8181; }
+.hm-list-item--declared { border-left: 3px solid #f59e0b; }
+.hm-list-date {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 40px; background: #f7fafc; border-radius: 8px; padding: 0.3rem 0.5rem;
+}
+.hm-list-day { font-size: 1.1rem; font-weight: 700; color: #2d3748; line-height: 1; }
+.hm-list-dow { font-size: 0.65rem; color: #718096; }
+.hm-list-info { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; }
+.hm-list-title { font-size: 0.88rem; font-weight: 600; color: #2d3748; }
+.hm-list-type {
+  font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem;
+  border-radius: 10px; display: inline-block; width: fit-content;
+}
+.hm-list-type--auto    { background: #fed7d7; color: #c53030; }
+.hm-list-type--holiday { background: #fef3c7; color: #92400e; }
+.hm-list-type--event   { background: #e0e7ff; color: #3730a3; }
+.hm-del-btn {
+  width: 28px; height: 28px; border-radius: 6px; border: none;
+  background: #fff5f5; color: #fc8181; font-size: 0.8rem; cursor: pointer;
+  transition: all 0.15s; display: flex; align-items: center; justify-content: center;
+}
+.hm-del-btn:hover { background: #fc8181; color: #fff; }
+
+@media (max-width: 900px) {
+  .hm-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hm-form-row { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,8 @@
+.table-wrapper { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.data-table thead tr { background: var(--primary); color: #fff; }
+.data-table th { padding: 12px 16px; text-align: left; font-weight: 600; white-space: nowrap; }
+.data-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: #f0faf4; }
+.table-empty { text-align: center; color: var(--text-muted); padding: 32px; }

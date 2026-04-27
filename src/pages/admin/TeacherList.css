@@ -1,0 +1,79 @@
+.teacher-page { display: flex; flex-direction: column; gap: 20px; }
+.teacher-header { display: flex; justify-content: space-between; align-items: flex-start; }
+
+.teacher-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.tstat-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 20px; border-radius: 14px; color: #fff;
+}
+.tstat-primary { background: linear-gradient(135deg, #6366f1, #818cf8); }
+.tstat-success { background: linear-gradient(135deg, #10b981, #34d399); }
+.tstat-warning { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+.tstat-info    { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+.tstat-val   { display: block; font-size: 1.4rem; font-weight: 800; }
+.tstat-label { display: block; font-size: 0.78rem; opacity: 0.9; }
+
+.teacher-search-bar { display: flex; }
+.teacher-search-input {
+  width: 100%; max-width: 380px; padding: 10px 16px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: inherit; font-size: 0.9rem; background: var(--card-bg);
+  color: var(--text);
+}
+.teacher-search-input:focus { outline: none; border-color: var(--primary); }
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.teacher-card {
+  background: var(--card-bg); border-radius: 16px;
+  border: 1.5px solid var(--border); padding: 20px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.teacher-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-color: var(--primary); }
+.teacher-card.inactive { opacity: 0.65; }
+
+.tc-top { display: flex; align-items: center; gap: 14px; }
+.tc-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  color: #fff; font-size: 1.4rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.tc-name { font-weight: 700; font-size: 1rem; color: var(--text); }
+.tc-id   { font-size: 0.75rem; color: var(--text-muted); margin: 2px 0 4px; }
+
+.tc-details { display: flex; flex-direction: column; gap: 6px; }
+.tc-row { display: flex; align-items: center; gap: 7px; font-size: 0.83rem; color: var(--text-muted); }
+.tc-row svg { flex-shrink: 0; color: var(--primary); }
+.tc-salary { font-weight: 700; color: var(--success) !important; }
+.tc-salary svg { color: var(--success) !important; }
+
+.tc-actions { display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 12px; }
+
+/* View modal */
+.teacher-view { display: flex; flex-direction: column; gap: 16px; }
+.tv-header { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.tv-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #818cf8);
+  color: #fff; font-size: 1.8rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.tv-name { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+.tv-id   { font-size: 0.8rem; color: var(--text-muted); margin: 2px 0 6px; }
+.tv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tv-field { display: flex; flex-direction: column; gap: 3px; }
+.tv-field label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.tv-field span  { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+.tv-salary-field span { font-size: 1.1rem; font-weight: 800; color: var(--success); }
+
+@media (max-width: 768px) {
+  .teacher-stats { grid-template-columns: repeat(2, 1fr); }
+  .tv-grid { grid-template-columns: 1fr; }
+}

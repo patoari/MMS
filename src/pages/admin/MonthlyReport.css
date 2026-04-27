@@ -1,0 +1,525 @@
+.monthly-report-page { display: flex; flex-direction: column; gap: 24px; }
+.report-controls-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+.report-controls-row > * { min-width: 140px; }
+
+/* Document */
+.report-document {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Header */
+.mr-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px double #1a5c38;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.mr-header-center {
+  display: flex; align-items: center; gap: 10px;
+  flex: 1;
+  justify-content: center;
+}
+.mr-logo { font-size: 2rem; flex-shrink: 0; }
+.mr-logo img { height: 40px !important; width: 40px !important; }
+.mr-header-text { flex: 0; text-align: center; }
+.mr-header-text h1 { font-size: 0.95rem; font-weight: 800; color: #1a5c38; margin-bottom: 1px; }
+.mr-header-text p { font-size: 0.68rem; color: #555; margin: 0; }
+.mr-period-badge {
+  background: #1a5c38; color: #f0d080;
+  padding: 5px 14px; border-radius: 6px;
+  font-size: 0.8rem; font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Table scroll wrapper */
+.mr-table-scroll { overflow-x: auto; margin-bottom: 32px; }
+
+/* Main table */
+.mr-table {
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  min-width: 100%;
+  font-family: 'Hind Siliguri', Arial, sans-serif;
+}
+
+/* Class header row */
+.mr-class-row { background: #1a5c38; }
+.mr-class-header {
+  color: #f0d080;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 7px 4px;
+  border: 1px solid #0d3d25;
+  white-space: nowrap;
+}
+.mr-grand-header {
+  background: #c9a84c; color: #0d3d25;
+  font-weight: 800; text-align: center;
+  padding: 7px 6px; border: 1px solid #0d3d25;
+  vertical-align: middle; font-size: 0.75rem;
+}
+
+/* Sub-header row */
+.mr-sub-row { background: #e8f5ee; }
+.mr-sub-th {
+  color: #1a5c38; font-weight: 700;
+  padding: 5px 4px; text-align: center;
+  border: 1px solid #c8e6d4;
+  white-space: normal; font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+/* Body rows */
+.mr-table tbody tr { border-bottom: 1px solid #e5e7eb; }
+.mr-row-even { background: #f9fdf9; }
+.mr-td-roll { width: 28px; text-align: center; padding: 4px 3px; border: 1px solid #e5e7eb; color: #555; font-size: 0.68rem; }
+.mr-td-id   { width: 90px; padding: 4px 4px; border: 1px solid #e5e7eb; font-family: monospace; font-size: 0.65rem; color: #1a5c38; white-space: nowrap; }
+.mr-td-name { min-width: 80px; max-width: 110px; padding: 4px 5px; border: 1px solid #e5e7eb; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mr-td-fee  { width: 50px; text-align: right; padding: 4px 5px; border: 1px solid #e5e7eb; font-weight: 600; color: #1a5c38; }
+.mr-td-due  { width: 50px; text-align: right; padding: 4px 5px; border: 1px solid #e5e7eb; font-weight: 600; color: #dc2626; }
+.mr-td-duecoll { width: 55px; text-align: right; padding: 4px 5px; border: 1px solid #e5e7eb; font-weight: 600; color: #d97706; }
+.mr-sub-th-due { color: #dc2626; }
+.mr-sub-th-duecoll { color: #d97706; }
+.mr-td-rowtotal { width: 60px; text-align: right; padding: 4px 6px; border: 1px solid #c8e6d4; font-weight: 700; color: #c9a84c; background: #fffbf0; }
+
+/* Footer total row */
+.mr-total-row { background: #fff3cd; }
+.mr-total-label { text-align: center; font-weight: 700; padding: 6px 4px; border: 1px solid #c8e6d4; color: #1a5c38; font-size: 0.72rem; }
+.mr-total-val { text-align: right; font-weight: 800; padding: 6px 5px; border: 1px solid #c8e6d4; color: #1a5c38; }
+.mr-total-due { text-align: right; font-weight: 800; padding: 6px 5px; border: 1px solid #fca5a5; color: #dc2626; background: #fff5f5; }
+.mr-total-duecoll { text-align: right; font-weight: 800; padding: 6px 5px; border: 1px solid #fde68a; color: #d97706; background: #fffbeb; }
+.mr-grand-due { font-size: 0.65rem; color: #dc2626; font-weight: 600; margin-top: 2px; }
+.mr-grand-duecoll { font-size: 0.65rem; color: #d97706; font-weight: 600; margin-top: 2px; }
+.mr-grand-total { text-align: right; font-weight: 800; padding: 6px 6px; border: 2px solid #c9a84c; color: #c9a84c; background: #fffbf0; font-size: 0.82rem; }
+
+/* Grand summary bar */
+.mr-grand-summary {
+  display: flex;
+  gap: 0;
+  margin-top: 12px;
+  border: 2px solid #c9a84c;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+}
+.mr-grand-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fffbf0;
+  border-right: 1px solid #e9d89a;
+}
+.mr-grand-item:last-child { border-right: none; }
+.mr-grand-item-due   { background: #fff8f0; }
+.mr-grand-item-total { background: #1a5c38; }
+.mr-grand-item-total .mr-grand-label,
+.mr-grand-item-total .mr-grand-value { color: #fff; }
+.mr-grand-label { font-size: 0.78rem; font-weight: 600; color: #555; margin-bottom: 4px; }
+.mr-grand-value { font-size: 1rem; font-weight: 800; color: #c9a84c; }
+.mr-grand-item-due .mr-grand-value { color: #d97706; }
+
+/* Signatures */
+.report-signatures { display: flex; justify-content: space-around; margin-top: 40px; margin-bottom: 20px; }
+.report-sig { text-align: center; }
+.report-sig-line { width: 160px; border-bottom: 1.5px solid #333; margin: 0 auto 8px; }
+.report-sig p { font-size: 0.8rem; color: #555; }
+.report-footer-note { text-align: center; font-size: 0.7rem; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+
+/* ── Print ── */
+@media print {
+  /* Page setup for fee report */
+  @page {
+    size: A4 landscape !important;
+    margin: 8mm 6mm !important;
+  }
+
+  /* Reset body and html for print */
+  html, body {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Hide controls completely */
+  .no-print,
+  .report-controls,
+  .report-tabs,
+  .page-title,
+  .page-subtitle,
+  button,
+  .input-label,
+  .input-field,
+  select {
+    display: none !important;
+  }
+
+  /* Show the page container */
+  .monthly-report-page {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Position the report document */
+  .report-document {
+    display: block !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 281mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+  }
+
+  /* Ensure all report content is visible */
+  .report-document,
+  .report-document * {
+    display: block !important;
+  }
+
+  .report-document table,
+  .report-document thead,
+  .report-document tbody,
+  .report-document tfoot,
+  .report-document tr,
+  .report-document th,
+  .report-document td {
+    display: table !important;
+  }
+
+  .report-document thead { display: table-header-group !important; }
+  .report-document tbody { display: table-row-group !important; }
+  .report-document tfoot { display: table-footer-group !important; }
+  .report-document tr { display: table-row !important; }
+  .report-document th,
+  .report-document td { display: table-cell !important; }
+
+  /* Header: only on first page */
+  .mr-header {
+    display: flex !important;
+    padding-bottom: 5px;
+    margin-bottom: 6px;
+  }
+
+  .mr-header-center {
+    display: flex !important;
+  }
+
+  .mr-logo,
+  .mr-header-text,
+  .mr-period-badge {
+    display: block !important;
+  }
+
+  /* Table fills width, no horizontal scroll */
+  .mr-table-scroll {
+    display: block !important;
+    overflow: visible !important;
+    width: 100% !important;
+    margin-bottom: 0;
+  }
+
+  .mr-table {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed;
+    font-size: 0.52rem;
+    border-collapse: collapse;
+  }
+
+  /* Grand summary */
+  .mr-grand-summary {
+    display: flex !important;
+    page-break-inside: avoid;
+    margin-top: 6px;
+  }
+
+  .mr-grand-item {
+    display: flex !important;
+  }
+
+  .mr-grand-label,
+  .mr-grand-value {
+    display: block !important;
+  }
+
+  /* Signatures and footer */
+  .report-signatures {
+    display: flex !important;
+    page-break-inside: avoid;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+
+  .report-sig {
+    display: block !important;
+  }
+
+  .report-sig-line,
+  .report-sig p {
+    display: block !important;
+  }
+
+  .report-footer-note {
+    display: block !important;
+    font-size: 0.58rem;
+    padding-top: 4px;
+    page-break-inside: avoid;
+  }
+
+  /* Allow rows to break across pages */
+  tr { page-break-inside: avoid; }
+
+  /* Tighten all cells */
+  .mr-class-header  { padding: 3px 2px; font-size: 0.56rem; }
+  .mr-sub-th        { padding: 2px 1px; font-size: 0.52rem; }
+  .mr-td-roll       { width: 16px; padding: 2px 1px; font-size: 0.52rem; }
+  .mr-td-id         { width: 56px; padding: 2px 1px; font-size: 0.48rem; white-space: normal; word-break: break-all; line-height: 1.3; }
+  .mr-td-fee        { width: 32px; padding: 2px 1px; font-size: 0.52rem; }
+  .mr-td-due        { width: 32px; padding: 2px 1px; font-size: 0.52rem; }
+  .mr-td-duecoll    { width: 36px; padding: 2px 1px; font-size: 0.52rem; }
+  .mr-td-rowtotal   { width: 36px; padding: 2px 2px; font-size: 0.52rem; }
+  .mr-total-label   { padding: 3px 2px; font-size: 0.54rem; }
+  .mr-total-val     { padding: 3px 2px; font-size: 0.54rem; }
+  .mr-total-due     { padding: 3px 2px; font-size: 0.54rem; }
+  .mr-total-duecoll { padding: 3px 2px; font-size: 0.54rem; }
+
+  .mr-header-text h1 { font-size: 0.82rem; }
+  .mr-header-text p  { font-size: 0.58rem; }
+  .mr-period-badge   { font-size: 0.65rem; padding: 3px 8px; }
+  .mr-logo img, .mr-logo span { height: 34px !important; width: 34px !important; }
+
+  .mr-grand-label { font-size: 0.65rem; }
+  .mr-grand-value { font-size: 0.82rem; }
+
+  .report-sig-line   { width: 110px; }
+  .report-sig p      { font-size: 0.6rem; }
+
+  /* Force background colors */
+  .mr-class-row, .mr-class-header, .mr-grand-header,
+  .mr-sub-row, .mr-row-even, .mr-total-row,
+  .mr-grand-item, .mr-grand-item-total, .mr-grand-item-due {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ── Tab switcher ── */
+.report-tabs { display: flex; gap: 10px; margin-top: 16px; }
+.report-tab {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 20px; border-radius: 8px; border: 1.5px solid var(--border);
+  background: transparent; cursor: pointer; font-family: inherit;
+  font-size: 0.875rem; color: var(--text); transition: all 0.15s;
+}
+.report-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* ── Finance Voucher ── */
+.finance-voucher {
+  font-family: 'Hind Siliguri', 'Kalpurush', Arial, sans-serif;
+  max-width: 860px; margin: 0 auto;
+}
+
+.fv-letterhead { text-align: center; border-bottom: 2px solid #1a5c38; padding-bottom: 12px; margin-bottom: 0; }
+.fv-bismillah  { font-family: 'Amiri', serif; font-size: 1.1rem; color: #1a5c38; margin-bottom: 6px; direction: rtl; }
+.fv-logo-row   { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.fv-logo       { width: 64px; height: 64px; object-fit: contain; }
+.fv-org        { text-align: center; }
+.fv-org-bn     { font-size: 1.5rem; font-weight: 900; color: #1a5c38; margin: 0; }
+.fv-org-addr   { font-size: 0.78rem; color: #444; margin: 2px 0; }
+.fv-org-en     { font-size: 0.9rem; font-weight: 600; color: #333; margin: 2px 0; }
+
+.fv-meta-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 16px; border: 1px solid #1a5c38; margin-top: 10px;
+  font-size: 0.85rem; font-weight: 600;
+}
+.fv-period { font-size: 1rem; font-weight: 800; color: #1a5c38; }
+
+/* Two-column body */
+.fv-body { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid #1a5c38; margin-top: 0; }
+.fv-col  { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.fv-income-col  { border-right: 1.5px solid #1a5c38; }
+.fv-col-header  {
+  text-align: center; font-weight: 800; font-size: 0.95rem;
+  color: #1a5c38; border-bottom: 1px solid #1a5c38;
+  padding-bottom: 6px; margin-bottom: 4px;
+}
+
+.fv-items { display: flex; flex-direction: column; gap: 5px; }
+.fv-item-row {
+  display: flex; align-items: baseline; gap: 4px;
+  font-size: 0.85rem; line-height: 1.5;
+}
+.fv-item-num    { flex-shrink: 0; font-weight: 600; min-width: 20px; }
+.fv-item-label  { flex-shrink: 0; display: flex; flex-direction: column; gap: 1px; }
+.fv-voucher-tag { font-size: 0.68rem; color: #6366f1; font-weight: 600; }
+.fv-item-dashes { flex: 1; color: #999; overflow: hidden; font-size: 0.7rem; letter-spacing: 1px; }
+.fv-item-amount { flex-shrink: 0; font-weight: 700; text-align: right; min-width: 90px; }
+.fv-empty       { color: #999; font-size: 0.82rem; text-align: center; padding: 8px 0; }
+
+.fv-divider { border-top: 1px solid #1a5c38; margin: 4px 0; }
+.fv-subtotal { font-weight: 800; font-size: 0.95rem; text-align: center; color: #1a5c38; }
+.fv-words    { font-size: 0.78rem; color: #555; text-align: center; font-style: italic; }
+
+.fv-summary-block { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.fv-summary-row   { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; }
+.fv-net           { color: #1a5c38; font-weight: 800; }
+.fv-deficit       { color: #dc2626; font-weight: 800; }
+.fv-prev          { color: #92400e; }
+.fv-cumulative    { font-size: 0.95rem; font-weight: 900; color: #1a5c38; }
+
+/* Signatures */
+.fv-signatures { display: flex; justify-content: space-around; margin-top: 40px; padding-top: 10px; border-top: 1px solid #ddd; }
+.fv-sig        { text-align: center; }
+.fv-sig-line   { width: 160px; border-bottom: 1.5px dashed #333; margin: 0 auto 8px; }
+.fv-sig p      { font-size: 0.8rem; color: #444; font-weight: 600; }
+
+/* ── Print for finance voucher ── */
+@media print {
+  /* Page setup for voucher */
+  @page {
+    size: A4 portrait !important;
+    margin: 10mm !important;
+  }
+
+  /* Reset for print */
+  html, body {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Hide controls */
+  .no-print,
+  .report-controls,
+  .report-tabs,
+  button,
+  .input-label,
+  .input-field,
+  select {
+    display: none !important;
+  }
+
+  /* Show the page container */
+  .monthly-report-page {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Position voucher */
+  .finance-voucher {
+    display: block !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+  }
+
+  /* Ensure all voucher content is visible */
+  .finance-voucher * {
+    display: block !important;
+  }
+
+  .fv-letterhead {
+    display: block !important;
+  }
+
+  .fv-bismillah,
+  .fv-logo-row,
+  .fv-logo,
+  .fv-org,
+  .fv-org-bn,
+  .fv-org-addr,
+  .fv-org-en,
+  .fv-meta-row,
+  .fv-period {
+    display: block !important;
+  }
+
+  .fv-logo-row {
+    display: flex !important;
+  }
+
+  .fv-meta-row {
+    display: flex !important;
+  }
+
+  .fv-body {
+    display: grid !important;
+    border: 1.5px solid #000 !important;
+  }
+
+  .fv-col,
+  .fv-income-col,
+  .fv-expense-col {
+    display: flex !important;
+  }
+
+  .fv-col-header,
+  .fv-items,
+  .fv-item-row,
+  .fv-item-num,
+  .fv-item-label,
+  .fv-item-dashes,
+  .fv-item-amount,
+  .fv-divider,
+  .fv-subtotal,
+  .fv-words,
+  .fv-summary-block,
+  .fv-summary-row {
+    display: block !important;
+  }
+
+  .fv-item-row,
+  .fv-summary-row {
+    display: flex !important;
+  }
+
+  .fv-signatures {
+    display: flex !important;
+  }
+
+  .fv-sig,
+  .fv-sig-line,
+  .fv-sig p {
+    display: block !important;
+  }
+
+  .fv-income-col { border-right: 1.5px solid #000 !important; }
+  .fv-col-header { border-bottom: 1px solid #000 !important; }
+  .fv-divider { border-top: 1px solid #000 !important; }
+  .fv-meta-row { border: 1px solid #000 !important; }
+  .fv-letterhead { border-bottom: 2px solid #000 !important; }
+  .fv-org-bn, .fv-col-header, .fv-subtotal, .fv-net, .fv-cumulative { color: #000 !important; }
+  .fv-bismillah { color: #000 !important; }
+  
+  * { 
+    -webkit-print-color-adjust: exact !important; 
+    print-color-adjust: exact !important; 
+  }
+}

@@ -1,0 +1,459 @@
+/* Overlay */
+.sdd-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 500;
+  display: flex; justify-content: flex-end;
+}
+
+/* Drawer panel */
+.sdd-drawer {
+  width: 720px; max-width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex; flex-direction: column;
+  box-shadow: -4px 0 32px rgba(0,0,0,0.15);
+  animation: slideIn 0.25s ease;
+  overflow: hidden;
+}
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+/* Header */
+.sdd-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 24px;
+  background: var(--primary);
+  color: #fff;
+  flex-shrink: 0;
+}
+.sdd-header-info { display: flex; align-items: center; gap: 14px; }
+.sdd-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 700; color: #fff; overflow: hidden; flex-shrink: 0;
+}
+.sdd-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.sdd-name { font-size: 1.1rem; font-weight: 700; }
+.sdd-meta { font-size: 0.8rem; color: rgba(255,255,255,0.75); margin-top: 3px; }
+.sdd-close {
+  background: rgba(255,255,255,0.15); border: none; color: #fff;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.1rem; transition: background 0.2s;
+}
+.sdd-close:hover { background: rgba(255,255,255,0.3); }
+
+/* Tabs */
+.sdd-tabs {
+  display: flex; border-bottom: 2px solid var(--border);
+  background: #fff; flex-shrink: 0; overflow-x: auto;
+}
+.sdd-tab {
+  display: flex; align-items: center; gap: 6px;
+  padding: 12px 20px; border: none; background: transparent;
+  font-size: 0.875rem; font-weight: 500; color: var(--text-muted);
+  cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px;
+  transition: all 0.2s; white-space: nowrap;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+.sdd-tab:hover { color: var(--primary); }
+.sdd-tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+.sdd-tab-admit { color: var(--warning, #d97706); }
+.sdd-tab-admit.active { color: var(--warning, #d97706); border-bottom-color: var(--warning, #d97706); }
+.sdd-tab-badge {
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Body */
+.sdd-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+
+/* Profile */
+.sdd-section-title { font-size: 0.82rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+.sdd-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sdd-info-row { display: flex; flex-direction: column; gap: 3px; padding: 10px 14px; background: var(--bg); border-radius: 8px; }
+.sdd-info-key { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+.sdd-info-val { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+/* Filters */
+.sdd-filters {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;
+  padding: 12px; background: var(--bg); border-radius: 10px;
+}
+.sdd-filter-select, .sdd-filter-input {
+  padding: 7px 12px; border: 1.5px solid var(--border); border-radius: 7px;
+  font-size: 0.82rem; font-family: 'Hind Siliguri', sans-serif;
+  color: var(--text); background: #fff; min-width: 130px;
+}
+.sdd-filter-select:focus, .sdd-filter-input:focus { outline: none; border-color: var(--primary); }
+
+/* Fee summary */
+.sdd-fee-summary { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.sdd-fee-sum-item {
+  flex: 1; min-width: 100px; padding: 12px 16px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border); text-align: center;
+}
+.sdd-fee-sum-item span { display: block; font-size: 0.72rem; color: var(--text-muted); margin-bottom: 4px; }
+.sdd-fee-sum-item strong { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.sdd-fee-sum-item.success strong { color: var(--success); }
+.sdd-fee-sum-item.danger  strong { color: var(--danger); }
+
+/* Table */
+.sdd-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.sdd-table thead tr { background: var(--primary); color: #fff; }
+.sdd-table th { padding: 9px 12px; text-align: left; font-weight: 600; white-space: nowrap; }
+.sdd-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.sdd-table tbody tr:last-child td { border-bottom: none; }
+.sdd-table tbody tr:hover { background: #f0faf4; }
+
+/* Exam card */
+.sdd-exam-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+.sdd-exam-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.sdd-exam-name { font-size: 0.95rem; font-weight: 700; color: var(--primary); }
+.sdd-exam-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 3px; }
+
+.sdd-empty { text-align: center; color: var(--text-muted); padding: 40px; font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .sdd-drawer { width: 100vw; }
+  .sdd-info-grid { grid-template-columns: 1fr; }
+}
+
+/* ── ID Card ── */
+.sdd-idcard-wrap { display: flex; flex-direction: column; align-items: center; }
+
+.sdd-print-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: 8px;
+  background: var(--primary); color: #fff; border: none;
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  font-family: 'Hind Siliguri', sans-serif; transition: background 0.2s;
+}
+.sdd-print-btn:hover { background: var(--primary-dark); }
+
+.sdd-id-card {
+  width: 210px;
+  height: 330px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: 'Hind Siliguri', sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Watermark */
+.sdd-id-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sdd-id-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sdd-id-watermark-emoji {
+  font-size: 140px;
+  line-height: 1;
+}
+
+/* Ensure content is above watermark */
+.sdd-id-card > *:not(.sdd-id-watermark) {
+  position: relative;
+  z-index: 2;
+}
+
+.sdd-id-topbar { height: 3px; background: linear-gradient(90deg, var(--primary), var(--gold)); }
+
+.sdd-id-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 6px 8px; display: flex; align-items: center; gap: 6px;
+}
+.sdd-id-logo { width: 26px; height: 26px; border-radius: 5px; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; overflow: hidden; }
+.sdd-id-logo img { width: 100%; height: 100%; object-fit: contain; }
+.sdd-id-inst-name { font-size: 0.62rem; font-weight: 700; color: var(--gold-light); line-height: 1.2; }
+.sdd-id-inst-sub { font-size: 0.48rem; color: rgba(255,255,255,0.6); direction: rtl; margin-top: 1px; }
+
+.sdd-id-type {
+  background: var(--gold); color: #fff;
+  text-align: center; padding: 2px;
+  font-size: 0.48rem; font-weight: 700; letter-spacing: 0.08em;
+}
+
+.sdd-id-body { display: flex; gap: 6px; padding: 6px 8px; flex: 1; overflow: hidden; }
+
+.sdd-id-left { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; }
+.sdd-id-photo {
+  width: 44px; height: 50px; border-radius: 5px;
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: 700; overflow: hidden;
+  border: 1.5px solid var(--border);
+}
+.sdd-id-photo img { width: 100%; height: 100%; object-fit: cover; }
+.sdd-id-badge-label {
+  background: var(--primary); color: #fff;
+  padding: 1px 6px; border-radius: 6px; font-size: 0.45rem; font-weight: 600;
+}
+
+.sdd-id-right { flex: 1; min-width: 0; }
+.sdd-id-name { font-size: 0.68rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
+.sdd-id-num { font-size: 0.5rem; color: var(--gold); font-weight: 600; margin-top: 1px; font-family: monospace; }
+.sdd-id-divider { height: 1px; background: var(--border); margin: 4px 0; }
+.sdd-id-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.sdd-id-field { display: flex; flex-direction: column; min-width: 0; }
+.sdd-id-field.full { grid-column: 1 / -1; }
+.sdd-id-field span { font-size: 0.42rem; color: var(--text-muted); }
+.sdd-id-field strong { font-size: 0.52rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.sdd-id-footer {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 5px 8px; border-top: 1px dashed var(--border);
+  margin-top: auto;
+}
+.sdd-id-sig { text-align: center; }
+.sdd-id-sig-line { width: 42px; border-top: 1px solid #333; margin-bottom: 2px; }
+.sdd-id-sig span { font-size: 0.4rem; color: var(--text-muted); }
+.sdd-id-barcode { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.sdd-id-barcode-bars { display: flex; align-items: flex-end; gap: 1px; }
+.sdd-id-bar { width: 1.2px; background: #333; border-radius: 0.5px; }
+.sdd-id-barcode-text { font-size: 0.4rem; font-family: monospace; color: var(--text-muted); }
+
+.sdd-id-bottom {
+  background: var(--primary); color: rgba(255,255,255,0.9);
+  text-align: center; padding: 3px; font-size: 0.46rem; font-weight: 500;
+}
+
+/* ── Print Styles ── */
+@media print {
+  /* Hide everything on the page */
+  body > *:not(.sdd-overlay) {
+    display: none !important;
+  }
+  
+  /* Show only the overlay and make it visible */
+  .sdd-overlay {
+    position: static !important;
+    background: white !important;
+    display: block !important;
+  }
+  
+  .sdd-drawer {
+    width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+    animation: none !important;
+    background: white !important;
+  }
+  
+  /* Hide UI elements */
+  .sdd-header,
+  .sdd-tabs,
+  .sdd-print-btn,
+  .sdd-close,
+  .sdd-profile,
+  .sdd-filters,
+  .sdd-fee-summary,
+  .sdd-table,
+  .sdd-exam-card,
+  .sdd-empty {
+    display: none !important;
+  }
+  
+  .sdd-body {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  
+  .sdd-idcard-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 20px !important;
+  }
+  
+  .sdd-id-card {
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    display: block !important;
+  }
+  
+  /* Ensure colors and backgrounds print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+
+/* ── ID Card Backside ── */
+.sdd-id-card-back {
+  width: 210px;
+  height: 330px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: 'Hind Siliguri', sans-serif;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sdd-id-back-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.sdd-id-back-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.sdd-id-back-subtitle {
+  font-size: 0.45rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.sdd-id-back-body {
+  padding: 6px;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sdd-id-back-section {
+  margin-bottom: 3px;
+  flex-shrink: 0;
+}
+
+.sdd-id-back-section-title {
+  font-size: 0.46rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sdd-id-back-rules-text {
+  font-size: 0.4rem;
+  color: var(--text);
+  line-height: 1.35;
+  margin: 0;
+  text-align: justify;
+}
+
+.sdd-id-back-contact {
+  background: var(--bg);
+  padding: 3px;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+
+.sdd-id-back-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.4rem;
+  color: var(--text);
+  margin-bottom: 1px;
+}
+
+.sdd-id-back-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.sdd-id-back-contact-label {
+  font-weight: 600;
+  color: var(--primary);
+  min-width: 28px;
+}
+
+.sdd-id-back-emergency {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  padding: 3px 5px;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+
+.sdd-id-back-emergency-title {
+  font-size: 0.45rem;
+  font-weight: 700;
+  color: #856404;
+  margin-bottom: 2px;
+}
+
+.sdd-id-back-emergency-text {
+  font-size: 0.4rem;
+  color: #856404;
+  line-height: 1.2;
+}
+
+.sdd-id-back-qr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background: var(--bg);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.sdd-id-back-qr canvas {
+  display: block;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.sdd-id-back-footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  padding: 3px;
+  font-size: 0.4rem;
+  font-weight: 500;
+  margin-top: auto;
+}
+
+.sdd-id-back-footer-note {
+  font-size: 0.38rem;
+  opacity: 0.8;
+  margin-top: 1px;
+}

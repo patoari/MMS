@@ -1,0 +1,24 @@
+.result-check-page { padding: 60px 24px; min-height: 80vh; }
+.result-check-container { max-width: 800px; margin: 0 auto; }
+.result-check-header { text-align: center; margin-bottom: 32px; }
+.result-check-header h1 { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.result-check-header p { color: var(--text-muted); }
+.result-search-card { background: #fff; padding: 32px; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 24px; }
+.result-search-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: end; }
+.result-not-found { text-align: center; padding: 32px; background: #fff; border-radius: 14px; color: var(--text-muted); }
+.result-not-found span { font-size: 3rem; display: block; margin-bottom: 12px; }
+.result-card { background: #fff; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+.result-card-header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; padding: 24px; }
+.result-card-header h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+.result-card-header p { font-size: 0.875rem; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+.result-summary { display: flex; gap: 24px; flex-wrap: wrap; }
+.result-summary-item { display: flex; flex-direction: column; gap: 4px; }
+.result-summary-item span { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+.result-summary-item strong { font-size: 1.2rem; font-weight: 700; }
+.result-subjects { padding: 24px; }
+.result-subjects h3 { font-size: 1rem; font-weight: 600; color: var(--primary); margin-bottom: 16px; }
+.result-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.result-table th { background: var(--bg); padding: 10px 14px; text-align: left; font-weight: 600; color: var(--text); }
+.result-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.result-table tbody tr:last-child td { border-bottom: none; }
+@media (max-width: 600px) { .result-search-form { grid-template-columns: 1fr; } }

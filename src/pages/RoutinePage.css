@@ -1,0 +1,183 @@
+.routine-page { padding: 60px 24px; min-height: 80vh; }
+.routine-container { max-width: 1100px; margin: 0 auto; }
+.routine-header { text-align: center; margin-bottom: 32px; }
+.routine-header h1 { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.routine-header p { color: var(--text-muted); }
+.routine-class-select { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.class-btn {
+  padding: 8px 18px; border-radius: 20px; border: 2px solid var(--border);
+  background: #fff; color: var(--text-muted); font-size: 0.875rem; cursor: pointer;
+  transition: all 0.2s; font-family: 'Hind Siliguri', sans-serif;
+}
+.class-btn.active, .class-btn:hover { border-color: var(--primary); background: var(--primary); color: #fff; }
+.routine-table-wrapper, .exam-routine-table-wrapper { overflow-x: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.routine-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.875rem; }
+.routine-table thead tr { background: var(--primary); color: #fff; }
+.routine-table th { padding: 14px 16px; text-align: center; font-weight: 600; white-space: nowrap; }
+.period-time { font-size: 0.72rem; font-weight: 400; opacity: 0.8; margin-top: 3px; }
+.routine-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+.routine-table tbody tr:last-child td { border-bottom: none; }
+.routine-table tbody tr:hover { background: #f0faf4; }
+.day-cell { font-weight: 600; color: var(--primary); background: #f0faf4; }
+.subject-cell { color: var(--text); }
+.date-cell { font-weight: 600; color: var(--primary); }
+.subject-name { font-weight: 500; text-align: left; }
+
+/* Print Header - Hidden by default, shown only when printing */
+.print-header {
+  display: none;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .routine-page {
+    padding: 0 !important;
+    min-height: auto !important;
+    background: white !important;
+  }
+
+  .routine-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Hide UI elements */
+  .routine-header,
+  .routine-class-select,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Show and style print header — compact horizontal row */
+  .print-header {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #1a5c38;
+  }
+
+  .print-logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .print-institution h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a5c38;
+    margin: 0 0 1px 0;
+  }
+
+  .print-name-en {
+    font-size: 0.72rem;
+    color: #555;
+    margin: 0;
+  }
+
+  .print-address {
+    font-size: 0.68rem;
+    color: #777;
+    margin: 0;
+  }
+
+  .print-title {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .print-title h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a5c38;
+    margin: 0 0 1px 0;
+  }
+
+  .print-title p {
+    font-size: 0.75rem;
+    color: #555;
+    margin: 0;
+  }
+
+  /* Table styles */
+  .routine-table-wrapper,
+  .exam-routine-table-wrapper {
+    overflow: visible !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: block !important;
+  }
+
+  .routine-table {
+    width: 100% !important;
+    font-size: 0.7rem !important;
+    table-layout: fixed !important;
+    display: table !important;
+  }
+
+  .routine-table thead { display: table-header-group !important; }
+  .routine-table tbody { display: table-row-group !important; }
+  .routine-table tr    { display: table-row !important; }
+
+  .routine-table th,
+  .routine-table td {
+    display: table-cell !important;
+    border: 1px solid #999 !important;
+    padding: 4px 5px !important;
+    word-break: break-word;
+  }
+
+  .routine-table th {
+    background-color: #1a5c38 !important;
+    color: white !important;
+    font-weight: 600 !important;
+  }
+
+  .day-cell {
+    background-color: #e8f5ee !important;
+    color: #1a5c38 !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+    width: 60px;
+  }
+
+  .leisure-th,
+  .leisure-cell {
+    background-color: #fff8e1 !important;
+  }
+
+  .leisure-badge {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 0.62rem;
+  }
+
+  .period-time {
+    font-size: 0.6rem !important;
+    opacity: 0.85;
+  }
+
+  .routine-table tbody tr:hover {
+    background: transparent !important;
+  }
+}
+

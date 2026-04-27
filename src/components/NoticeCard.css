@@ -1,0 +1,394 @@
+/* ── Card shell ── */
+.nc-card {
+  background: #fff;
+  border: 1px solid #d8d0c0;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+.nc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.14); transform: translateY(-2px); }
+.nc-card.nc-important { border-color: #c0392b; }
+
+.nc-accent { height: 5px; width: 100%; flex-shrink: 0; }
+
+/* ── HEADER ── */
+.nc-header { flex-shrink: 0; }
+
+.nc-bismillah {
+  text-align: center; font-size: 1.1rem; color: #1a5c38;
+  padding: 14px 24px 6px;
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl; letter-spacing: 1px;
+}
+.nc-salam {
+  text-align: center; font-size: 0.95rem; color: #1a5c38;
+  padding: 0 24px 10px;
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl; letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.nc-institution {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 24px 14px;
+  border-bottom: 1px solid #e8e0d0;
+}
+.nc-logo-wrap { flex-shrink: 0; }
+.nc-inst-name { font-size: 1rem; font-weight: 700; color: #1a5c38; line-height: 1.3; }
+.nc-inst-arabic { font-size: 0.82rem; color: #888; direction: rtl; margin: 1px 0; }
+.nc-inst-address { font-size: 0.72rem; color: #999; margin-top: 2px; }
+
+.nc-divider { text-align: center; padding: 8px 0; color: #c8b89a; font-size: 0.7rem; letter-spacing: 8px; }
+
+.nc-label-row { display: flex; align-items: center; gap: 10px; padding: 0 24px 12px; }
+.nc-label {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; border: 1.5px solid; padding: 3px 10px; border-radius: 3px;
+}
+.nc-category-tag {
+  font-size: 0.7rem; font-weight: 700; color: #fff;
+  padding: 3px 10px; border-radius: 3px; letter-spacing: .5px;
+}
+.nc-title {
+  font-size: 1.05rem; font-weight: 700; color: #1a1a1a;
+  padding: 0 24px 12px; line-height: 1.5;
+  border-bottom: 1px dashed #e0d8c8;
+}
+
+/* ── BODY — fixed height, fades out ── */
+.nc-body {
+  flex: 1;
+  min-height: 100px;
+  max-height: 130px;
+  overflow: hidden;
+  position: relative;
+  padding: 14px 24px 0;
+}
+.nc-content {
+  font-size: 0.875rem; color: #333; line-height: 1.85;
+  white-space: pre-wrap; margin: 0;
+}
+.nc-body-fade {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  pointer-events: none;
+}
+
+/* ── FOOTER — always at bottom ── */
+.nc-footer {
+  flex-shrink: 0;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  padding: 14px 24px; border-top: 1px solid #e8e0d0; background: #faf8f4;
+  margin-top: 14px;
+}
+.nc-footer-sig { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.nc-sig-line { width: 100px; border-top: 1px solid #999; }
+.nc-footer-sig span { font-size: 0.7rem; color: #888; }
+.nc-footer-date { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.nc-date-label { font-size: 0.68rem; color: #aaa; text-transform: uppercase; letter-spacing: .5px; }
+.nc-date-val { font-size: 0.85rem; font-weight: 600; color: #555; }
+
+.nc-seal-row {
+  flex-shrink: 0;
+  text-align: center; padding: 8px;
+  background: #f5f0e8; border-top: 1px solid #e8e0d0;
+}
+.nc-seal-text { font-size: 0.65rem; color: #bbb; letter-spacing: 3px; text-transform: uppercase; }
+
+/* ── Full-width body overlay ── */
+.nc-overlay {
+  position: fixed; 
+  inset: 0; 
+  z-index: 9999;
+  background: rgba(0,0,0,0.65);
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 20px;
+  animation: nc-fade-in 0.18s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@keyframes nc-fade-in { from { opacity: 0 } to { opacity: 1 } }
+
+.nc-overlay-panel {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid #1a5c38;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: nc-scale-in 0.2s ease;
+  position: relative;
+  margin: auto;
+}
+@keyframes nc-scale-in { from { transform: scale(0.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+.nc-overlay-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e8e0d0;
+  flex-shrink: 0;
+}
+.nc-overlay-title {
+  flex: 1; font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin: 0;
+  line-height: 1.4;
+}
+.nc-overlay-close {
+  background: none; border: none; font-size: 1rem; cursor: pointer;
+  color: #888; padding: 4px 8px; border-radius: 4px; flex-shrink: 0;
+}
+.nc-overlay-close:hover { background: #f0f0f0; color: #333; }
+
+.nc-overlay-body {
+  flex: 1; overflow-y: auto; padding: 24px 32px;
+  font-size: 1rem; color: #333; line-height: 1.85;
+  white-space: pre-wrap;
+}
+
+.nc-overlay-bismillah {
+  text-align: center; font-size: 1.3rem; color: #1a5c38;
+  padding: 0 0 8px;
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl; letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.nc-overlay-salam {
+  text-align: center; font-size: 1.1rem; color: #1a5c38;
+  padding: 0 0 20px;
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl; letter-spacing: 0.5px;
+  font-weight: 600;
+  border-bottom: 2px solid #e8e0d0;
+  margin-bottom: 20px;
+}
+
+/* Print button */
+.nc-print-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.nc-print-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Print-only header - hidden by default */
+.nc-print-header {
+  display: none;
+}
+
+.nc-print-footer,
+.nc-print-seal {
+  display: none;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 20mm;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Hide screen elements */
+  .no-print,
+  .nc-overlay-header {
+    display: none !important;
+  }
+
+  /* Reset overlay for print */
+  .nc-overlay {
+    position: static !important;
+    background: white !important;
+    padding: 0 !important;
+    display: block !important;
+    overflow: visible !important;
+    inset: auto !important;
+    animation: none !important;
+  }
+
+  .nc-overlay-panel {
+    max-width: 100% !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    position: static !important;
+    animation: none !important;
+  }
+
+  .nc-overlay-body {
+    padding: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Show print header */
+  .nc-print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #1a5c38;
+  }
+
+  .nc-print-logo {
+    margin-bottom: 10px;
+  }
+
+  .nc-print-logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .nc-print-institution h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a5c38;
+    margin: 0 0 3px 0;
+  }
+
+  .nc-print-name-en {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 3px 0;
+  }
+
+  .nc-print-address {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0 0 10px 0;
+  }
+
+  .nc-print-divider {
+    width: 80px;
+    height: 2px;
+    background: #c9a84c;
+    margin: 10px auto;
+  }
+
+  .nc-print-notice-header {
+    text-align: center;
+  }
+
+  .nc-print-category {
+    display: inline-block !important;
+    background: #1a5c38 !important;
+    color: white !important;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .nc-print-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a5c38;
+    margin: 0 0 15px 0;
+  }
+
+  /* Content styling */
+  .nc-overlay-bismillah {
+    display: block !important;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #1a5c38;
+    padding: 0 0 6px;
+    font-family: 'Amiri', 'Scheherazade New', serif;
+    direction: rtl;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .nc-overlay-salam {
+    display: block !important;
+    text-align: center;
+    font-size: 1rem;
+    color: #1a5c38;
+    padding: 0 0 15px;
+    font-family: 'Amiri', 'Scheherazade New', serif;
+    direction: rtl;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    border-bottom: 2px solid #e8e0d0;
+    margin-bottom: 15px;
+  }
+
+  .nc-overlay-body p {
+    display: block !important;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 0 15px 0;
+    color: #333;
+  }
+
+  /* Show print footer */
+  .nc-print-footer {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #999;
+  }
+
+  .nc-print-sig {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nc-print-sig-line {
+    width: 100px;
+    border-top: 1px solid #333;
+  }
+
+  .nc-print-sig span,
+  .nc-print-date span {
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .nc-print-seal {
+    display: block !important;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #888;
+  }
+}

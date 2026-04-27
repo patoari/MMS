@@ -1,0 +1,17 @@
+.pagination {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 4px 4px; flex-wrap: wrap; gap: 8px;
+}
+.pagination-info { font-size: 0.8rem; color: var(--text-muted); }
+.pagination-controls { display: flex; align-items: center; gap: 4px; }
+.pg-btn {
+  min-width: 32px; height: 32px; padding: 0 8px;
+  border: 1.5px solid var(--border); border-radius: 7px;
+  background: var(--card-bg); color: var(--text);
+  cursor: pointer; font-family: inherit; font-size: 0.82rem;
+  transition: all 0.15s;
+}
+.pg-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+.pg-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: 700; }
+.pg-btn:disabled { opacity: 0.35; cursor: default; }
+.pg-ellipsis { padding: 0 4px; color: var(--text-muted); font-size: 0.85rem; }

@@ -1,0 +1,16 @@
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+.input-label { font-size: 0.875rem; font-weight: 500; color: var(--text); }
+.required { color: var(--danger); margin-left: 3px; }
+.input-field {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.input-field:focus { outline: none; border-color: var(--primary); }
+.input-field.input-error { border-color: var(--danger); }
+.input-error-msg { font-size: 0.78rem; color: var(--danger); }

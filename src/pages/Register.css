@@ -1,0 +1,13 @@
+.register-login-link {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.register-login-link a {
+  color: var(--primary);
+  font-weight: 600;
+}
+.register-login-link a:hover {
+  text-decoration: underline;
+}

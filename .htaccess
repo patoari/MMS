@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Route /backend/* to backend/index.php
+RewriteCond %{REQUEST_URI} ^/backend/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^backend/(.*)$ backend/index.php [QSA,L]
+
+# Serve existing static files/dirs directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# All other requests → React SPA
+RewriteRule ^ index.html [L]
